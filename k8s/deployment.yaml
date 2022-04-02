@@ -5,6 +5,7 @@ kind: Deployment
 metadata:
   name: mongodb
 spec:
+  replicas: 10
   selector:
     matchLabels:
       app: mongodb
@@ -88,7 +89,8 @@ spec:
   - port: 80
     targetPort: 5000
     nodePort: 30000
-  type: NodePort
+  type: LoadBalancer #Service em Nuvem
+#  type: NodePort
 
 
 
