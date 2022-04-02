@@ -35,13 +35,13 @@ jobs:
     runs-on: ubuntu-lates
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       
-      - name: DigitalOcean Kubernetes
-        uses: matootie/dokube@v1.4.0
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.K8S_KUBCONFIG }}
+      - name: Azure Kubernetes set context
+          uses: Azure/k8s-set-context@v1.1
+          with:
+            method: kubeconfig
+            kubeconfig: ${{ secrets.K8S_KUBCONFIG }}
           
     
     
